@@ -1,0 +1,25 @@
+{
+  "name": "yanthink/browser",
+  "description": "模拟浏览器",
+  "keywords": [
+    "UEditor",
+    "laravel"
+  ],
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "yanthink",
+      "email": "yanthink911@qq.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.9",
+    "facebook/webdriver": "~1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Yanthink\\Browser\\": "src/"
+    }
+  }
+}
