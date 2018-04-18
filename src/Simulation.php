@@ -80,11 +80,7 @@ class Simulation
     {
         $browsers = $this->createBrowsersFor($callback);
 
-        try {
-            $callback(...$browsers->all());
-        } finally {
-            static::$browsers = $this->closeAllButPrimary($browsers);
-        }
+        $callback(...$browsers->all());
     }
 
     /**
@@ -191,8 +187,10 @@ class Simulation
         );
     }
 
+    /*
     public function __destruct()
     {
         static::tearDown();
     }
+    */
 }
