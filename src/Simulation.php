@@ -33,13 +33,13 @@ class Simulation
 
     public function __construct()
     {
-        if (static::$autoStartChromeDriver) {
-            static::startChromeDriver();
-        }
-
         register_shutdown_function(function () {
             static::tearDown();
         });
+
+        if (static::$autoStartChromeDriver) {
+            static::startChromeDriver();
+        }
     }
 
     public static function tearDown()

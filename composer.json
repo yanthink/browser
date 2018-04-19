@@ -2,7 +2,7 @@
   "name": "yanthink/browser",
   "description": "模拟浏览器",
   "keywords": [
-    "UEditor",
+    "webDriver",
     "laravel"
   ],
   "type": "library",
