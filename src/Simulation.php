@@ -25,6 +25,14 @@ class Simulation
      */
     protected static $browsers = [];
 
+    protected static $connectionTimeoutInMs = null;
+
+    protected static $requestTimeoutInMs = null;
+
+    protected static $httpProxy = null;
+
+    protected static $httpProxyPort = null;
+
     /**
      * 后置回调
      * @var array
@@ -49,14 +57,6 @@ class Simulation
         foreach (static::$afterClassCallbacks as $callback) {
             $callback();
         }
-    }
-
-    /**
-     * 禁用自启动chromeDriver服务
-     */
-    public static function disableAutoStartChromeDriver()
-    {
-        static::$autoStartChromeDriver = false;
     }
 
     /**
@@ -183,8 +183,57 @@ class Simulation
         $desiredCapabilities = $chromeOptions->toCapabilities();
 
         return RemoteWebDriver::create(
-            static::$url, $desiredCapabilities
+            static::$url,
+            $desiredCapabilities,
+            static::$connectionTimeoutInMs,
+            static::$requestTimeoutInMs,
+            static::$httpProxy,
+            static::$httpProxyPort
         );
+    }
+
+    /**
+     * 禁用自启动chromeDriver服务
+     */
+    public static function disableAutoStartChromeDriver()
+    {
+        static::$autoStartChromeDriver = false;
+    }
+
+    /**
+     * 链接超时设置
+     * @param $connectionTimeoutInMs
+     */
+    public static function setConnectionTimeoutInMs($connectionTimeoutInMs)
+    {
+        static::$connectionTimeoutInMs = $connectionTimeoutInMs;
+    }
+
+    /**
+     * 请求超时设置
+     * @param $requestTimeoutInMs
+     */
+    public static function setRequestTimeoutInMs($requestTimeoutInMs)
+    {
+        static::$requestTimeoutInMs = $requestTimeoutInMs;
+    }
+
+    /**
+     * 代理设置
+     * @param $httpProxy
+     */
+    public static function setHttpProxy($httpProxy)
+    {
+        static::$httpProxy = $httpProxy;
+    }
+
+    /**
+     * 设置代理端口
+     * @param $httpProxyPort
+     */
+    public static function setHttpProxyPort($httpProxyPort)
+    {
+        static::$httpProxyPort = $httpProxyPort;
     }
 
     /*

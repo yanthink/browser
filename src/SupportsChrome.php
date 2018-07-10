@@ -24,7 +24,7 @@ trait SupportsChrome
     protected static $url = 'http://localhost:9515';
 
     /**
-     * chromedriver 服务
+     * 开启 chromeDriver 服务
      *
      * @var ChromeDriverService $driverService | null
      */
@@ -47,7 +47,7 @@ trait SupportsChrome
     }
 
     /**
-     * Stop the Chromedriver process.
+     * 停止 chromeDriver 服务
      *
      * @return void
      */
@@ -86,6 +86,7 @@ trait SupportsChrome
 
     /**
      * 获取端口号
+     *
      * @return mixed
      */
     public static function getPort()
@@ -99,6 +100,7 @@ trait SupportsChrome
 
     /**
      * 设置端口号
+     *
      * @param $port
      */
     public static function setPort($port)
@@ -108,6 +110,7 @@ trait SupportsChrome
 
     /**
      * 获取参数
+     *
      * @return mixed
      */
     public static function getArguments()
@@ -119,6 +122,7 @@ trait SupportsChrome
 
     /**
      * 设置参数
+     *
      * @param array $args
      */
     public static function setArguments($args = [])
